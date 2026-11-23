@@ -5,7 +5,6 @@ import 'package:arcade_motoru/topcu.dart';
 import 'package:flutter/material.dart';
 import 'package:studio_core/app/arcade_stage.dart';
 import 'package:studio_core/app/game_api.dart';
-import 'package:studio_core/core/game_rules.dart';
 
 const topcuId = 'oyun-topcu-duellosu';
 
@@ -88,7 +87,7 @@ final topcuConfig = GameConfig(
   rules: topcuRules,
   buildPlay: (ctx) => ArcadeStage(
     ctx: ctx,
-    create: () => topcuRules.createSim((ctx.generated as GeneratedLevel).puzzle),
+    create: () => topcuRules.createSim(ctx.generated.puzzle),
     paint: (c, s, p, t) {
       arcadeLang = ctx.lang;
       paintArtillery(c, s, p, t);
